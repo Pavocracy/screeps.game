@@ -31,4 +31,8 @@ module.exports.loop = function () {
             roleBuilder.run(creep);
         }
     }
+
+    if(harvesters.length < 1) {
+        Game.spawns.Spawn1.createCreep([Game.WORK, Game.CARRY, Game.MOVE], null, {role: 'harvester'});
+    }
 }
