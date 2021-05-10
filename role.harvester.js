@@ -26,8 +26,4 @@ var roleHarvester = {
     }
 };
 
-var harvesters = creep.room.find(Game.MY_CREEPS, function(creep) {
-    return creep.memory.role === 'harvester';
-});
-
-module.exports = roleHarvester
+module.exports = roleHarvester;
