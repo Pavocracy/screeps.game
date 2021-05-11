@@ -15,8 +15,7 @@ module.exports.loop = function () {
         harvesters = 0
         upgraders = 0
         builders = 0
-        console.log(harvesters, upgraders, builders)
-        
+
         if(creep.memory.role == 'harvester') {
             harvesters++
             roleHarvester.run(creep);
@@ -39,5 +38,7 @@ module.exports.loop = function () {
         if(builders < 1) {
             Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE], null, {role: 'builder'});    
         }
+
+        console.log(harvesters, upgraders, builders)
     };
 }
