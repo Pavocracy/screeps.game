@@ -24,13 +24,13 @@ module.exports.loop = function () {
         }
 
         if(harvesters < 1) {
-            Game.spawns.spawn1.spawnCreep([WORK, CARRY, MOVE], null, {role: 'harvester'});    
+            Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE], null, {role: 'harvester'});    
         }
         if(upgraders < 1) {
-            Game.spawns.spawn1.spawnCreep([WORK, CARRY, MOVE], null, {role: 'upgrader'});    
+            Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE], null, {role: 'upgrader'});    
         }
         if(builders < 1) {
-            Game.spawns.spawn1.spawnCreep([WORK, CARRY, MOVE], null, {role: 'builder'});    
+            Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE], null, {role: 'builder'});    
         }
     };
 }
