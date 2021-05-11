@@ -20,8 +20,6 @@ module.exports.loop = function () {
     };
 
     for(var role in Game.creeps.memory.role) {
-        var role = ['harvester', 'upgrader', 'builder'];
-        
         getRole.run(role);
         
         if (role > 1) {
