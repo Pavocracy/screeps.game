@@ -15,7 +15,8 @@ module.exports.loop = function () {
         harvesters = 0
         upgraders = 0
         builders = 0
-
+        console.log(harvesters, upgraders, builders)
+        
         if(creep.memory.role == 'harvester') {
             harvesters++
             roleHarvester.run(creep);
