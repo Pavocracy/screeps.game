@@ -4,6 +4,10 @@ var roleBuilder = require('role.builder');
 
 module.exports.loop = function () {
 
+    var harvesters = [];
+    var upgraders = [];
+    var builders = [];
+    
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
         if(creep.memory.role == 'harvester') {
@@ -20,8 +24,8 @@ module.exports.loop = function () {
         }
     };
 
-    if(Object.keys(Game.creeps).reduce(function(p, c, i, a) {return p + (Game.creeps[c].memory.role == "harvester" ? 1 : 0)}, 0) < 1) {
-        Game.spawns.spawn1.createCreep([Game.WORK, Game.CARRY, Game.MOVE], null, {role: 'harvester'});
+    if(harvesters.length < 1) {
+        Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE], null, {role: 'harvester'});
     };
 
 };
