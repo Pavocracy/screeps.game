@@ -28,4 +28,11 @@ module.exports.loop = function () {
         Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE], null, {role: 'harvester'});
     };
 
+    if(upgraders.length < 1) {
+        Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE], null, {role: 'upgrader'});
+    };
+
+    if(builders.length < 1) {
+        Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE], null, {role: 'builder'});
+    };
 };
