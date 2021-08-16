@@ -3,25 +3,22 @@ var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
 
 global.roles = function() {
+    global.harvesters = _(Game.creeps).filter( { memory: { role: 'harvester' } } ).size();
+    global.upgraders = _(Game.creeps).filter( { memory: { role: 'upgrader' } } ).size();
+    global.builders = _(Game.creeps).filter( { memory: { role: 'builder' } } ).size();
+
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
-        global.harvesters = 0;
-        global.upgraders = 0;
-        global.builders = 0;
-
         if(creep.memory.role == 'harvester') {
-            global.harvesters++;
             roleHarvester.run(creep);
         }
         if(creep.memory.role == 'upgrader') {
-            global.upgraders++;
             roleUpgrader.run(creep);
         }
         if(creep.memory.role == 'builder') {
-            global.builders++;
             roleBuilder.run(creep);
         }
     }
 }
 
-module.exports = roles;
+module.exports = roles

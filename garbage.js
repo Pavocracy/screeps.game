@@ -6,4 +6,4 @@ global.garbage = function() {
     }
 }
 
-module.exports = garbage;
+module.exports = garbage
