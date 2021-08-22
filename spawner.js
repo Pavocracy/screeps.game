@@ -26,14 +26,14 @@ global.spawner = function() {
             950:[WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE],
             1000:[WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE]
         };
-        if(harvesters < (level * 2)) {
-            spawner.createCreep(parts[energy], null, {role: 'harvester'});    
+        if(builders < (level * 1)) {
+            spawner.createCreep(parts[energy], null, {role: 'builder'});    
         }
         if(upgraders < (level * 2)) {
             spawner.createCreep(parts[energy], null, {role: 'upgrader'});    
         }
-        if(builders < (level * 1)) {
-            spawner.createCreep(parts[energy], null, {role: 'builder'});    
+        if(harvesters < (level * 2)) {
+            spawner.createCreep(parts[energy], null, {role: 'harvester'});    
         }
     }
 }
