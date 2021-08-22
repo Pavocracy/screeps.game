@@ -2,10 +2,10 @@ global.structures = function() {
     for(var name in Game.rooms) {
         var room = Game.rooms[name];
         var spawner = room.find(FIND_MY_SPAWNS)[0];
-        var spawnX = Game.spawns[spawner].pos.x;
-        var spawnY = Game.spawns[spawner].pos.y;
-        var sites = Game.spawns[spawner].room.find(FIND_MY_CONSTRUCTION_SITES).length;
-        var extensions = Game.spawns[spawner].room.find(FIND_MY_STRUCTURES, {filter: {structureType: STRUCTURE_EXTENSION}}).length;
+        var spawnX = spawner.pos.x;
+        var spawnY = spawner.pos.y;
+        var sites = spawner.room.find(FIND_MY_CONSTRUCTION_SITES).length;
+        var extensions = spawner.room.find(FIND_MY_STRUCTURES, {filter: {structureType: STRUCTURE_EXTENSION}}).length;
         if(room.controller.level == 2 && extensions < 5 && sites < 1) {
             room.createConstructionSite((spawnX), (spawnY + (extensions + 1)), STRUCTURE_EXTENSION);
         }
