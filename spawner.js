@@ -3,9 +3,9 @@ global.spawner = function() {
         var room = Game.rooms[name];
         var level = room.controller.level;
         var spawner = room.find(FIND_MY_SPAWNS)[0];
-        var harvesters = room.find(FIND_MY_CREEPS).filter( { memory: { role: 'harvester' } } ).size();
-        var upgraders = room.find(FIND_MY_CREEPS).filter( { memory: { role: 'upgrader' } } ).size();
-        var builders = room.find(FIND_MY_CREEPS).filter( { memory: { role: 'builder' } } ).size();
+        var harvesters = _(room.find(FIND_MY_CREEPS)).filter({memory:{role:'harvester'}}).size();
+        var upgraders = _(room.find(FIND_MY_CREEPS)).filter({memory:{role:'upgrader'}}).size();
+        var builders = _(room.find(FIND_MY_CREEPS)).filter({memory:{role:'builder'}}).size();
         var energy = room.energyCapacityAvailable;
         var parts = {
             200:[WORK, CARRY, MOVE],
@@ -27,13 +27,13 @@ global.spawner = function() {
             1000:[WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE]
         };
         if(harvesters < (level * 2)) {
-            Game.spawns.spawner.createCreep(parts[energy], null, {role: 'harvester'});    
+            Game.spawns[spawner].createCreep(parts[energy], null, {role: 'harvester'});    
         }
         if(upgraders < (level * 2)) {
-            Game.spawns.spawner.createCreep(parts[energy], null, {role: 'upgrader'});    
+            Game.spawns[spawner].createCreep(parts[energy], null, {role: 'upgrader'});    
         }
         if(builders < (level * 1)) {
-            Game.spawns.spawner.createCreep(parts[energy], null, {role: 'builder'});    
+            Game.spawns[spawner].createCreep(parts[energy], null, {role: 'builder'});    
         }
     }
 }
