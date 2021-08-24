@@ -1,6 +1,5 @@
-global.spawner = function() {
-    for(var name in Game.rooms) {
-        var room = Game.rooms[name];
+var spawners = {
+    run: function(room) {
         var level = room.controller.level;
         var spawner = room.find(FIND_MY_SPAWNS)[0];
         var harvesters = _(room.find(FIND_MY_CREEPS)).filter({memory: {role: 'harvester'}}).size();
@@ -38,4 +37,4 @@ global.spawner = function() {
     }
 }
 
-module.exports = spawner
+module.exports = spawners

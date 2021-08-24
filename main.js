@@ -1,13 +1,21 @@
 var garbage = require('garbage')
 var roles = require('roles')
-var spawner = require('spawner')
+var spawners = require('spawners')
 var structures = require('structures')
 
 module.exports.loop = function() {
     garbage();
-    roles();
-    structures();
-    spawner();
+
+    for(var i in Game.rooms) {
+        var room = Game.rooms[i];
+        structures.run(room);
+        spawners.run(room);
+    }
+
+    for(var j in Game.creeps) {
+        var creep = Game.creeps[j];
+        roles.run(creep);
+    }
 }
 
 // helpful console commands:

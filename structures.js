@@ -1,6 +1,5 @@
-global.structures = function() {
-    for(var name in Game.rooms) {
-        var room = Game.rooms[name];
+var structures = {
+    run: function(room) {
         var spawner = room.find(FIND_MY_SPAWNS)[0];
         var spawnX = spawner.pos.x;
         var spawnY = spawner.pos.y;

@@ -2,9 +2,8 @@ var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
 
-global.roles = function() {
-    for(var name in Game.creeps) {
-        var creep = Game.creeps[name];
+var roles = {
+    run: function(creep) {
         if(creep.memory.role == 'harvester') {
             roleHarvester.run(creep);
         }
